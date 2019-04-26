@@ -1,1 +1,4 @@
+*.gsm linguist-vendored
+*.png linguist-vendored
 *.txt linguist-language=PureBasic
+
