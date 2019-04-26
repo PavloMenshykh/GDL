@@ -1,1 +1,1 @@
-linguist-language=GDL
+*.rb linguist-language=Basic
