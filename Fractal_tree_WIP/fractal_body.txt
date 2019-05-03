@@ -1,0 +1,79 @@
+!!MAIN
+
+if pos = "ver" then
+ROTY 270
+endif
+
+if camerarot="yes" then 
+
+!!!FROM AC tree
+	dx = GLOB_EYEPOS_X - GLOB_TARGPOS_X
+	dy = GLOB_EYEPOS_Y - GLOB_TARGPOS_Y
+	
+	if SYMB_MIRRORED then
+		rotx SYMB_ROTANGLE
+	else
+		rotx -SYMB_ROTANGLE
+	endif	
+		if GLOB_EYEPOS_Y>GLOB_TARGPOS_Y then
+			rotx 180
+		endif
+	
+		alf = atn(abs(dy/dx))
+		
+		if SYMB_MIRRORED then
+			if dx<0 and dy>0 then 
+				rotx -(180-alf)
+			endif
+			if dx<0 and dy<0 then 
+				rotx -(180+alf)
+			endif
+			if dx>0 and dy<0 then 
+				rotx -(-alf)
+			endif
+			if dx>0 and dy>0 then 
+				rotx -(alf)
+			endif
+		else
+			if dx<0 and dy>0 then 
+				rotx (180-alf)
+			endif
+			if dx<0 and dy<0 then 
+				rotx (180+alf)
+			endif
+			if dx>0 and dy<0 then 
+				rotx (-alf)
+			endif
+			if dx>0 and dy>0 then 
+				rotx (alf)
+			endif
+		endif	
+!!!FROM AC TREE END
+	
+endif
+
+
+
+recursion = 0
+
+z1 = 0
+z2 = 0
+x1 = 0
+y1 = 0
+x2 = x1
+y2 = y1
+
+HOTSPOT x1, y1, z1
+
+		call"fractal_func", parameters recursion = recursion+1,
+		z2=z2,
+		x2=x2,
+		y2=y2,
+		ll=ll,
+		aa=aa,
+		ss=ss,
+		rr=rr,
+		C=C,
+		llrn=llrn,
+		aarn=aarn
+
