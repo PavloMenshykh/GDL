@@ -1,2 +1,2 @@
-# GDL_fractal_tree_WIP
-fractal tree project written in proprietary gdl language for archicad 21 and above
+# GDL
+more complex gdl objects from my personal archive
